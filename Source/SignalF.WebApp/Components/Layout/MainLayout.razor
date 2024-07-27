@@ -1,35 +1,48 @@
 @inherits LayoutComponentBase
 <RadzenComponents />
 
-<RadzenLayout style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body';">
-    <RadzenHeader>
-        <RadzenRow JustifyContent="JustifyContent.Start" AlignItems="AlignItems.Center" Gap="0">
-            <RadzenColumn Size="5">
-                <RadzenSidebarToggle Click="@SidebarToggleClick"></RadzenSidebarToggle>
-            </RadzenColumn>
-            <RadzenColumn Size="7">
-                <RadzenStack AlignItems="AlignItems.Center" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End"></RadzenStack>
-            </RadzenColumn>
+<RadzenLayout style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body';" >
+    <RadzenHeader class="rz-py-4" >
+        <RadzenRow class="rz-mx-auto rz-mb-auto" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Style="max-width: 1440px;">
+                <RadzenLink Text="Text" Path="./">
+                    <RadzenStack Orientation="Orientation.Horizontal">
+                        <RadzenImage Path="images/logo_text.png" class="rz-display-none rz-display-lg-block" Style="height: 50px;"></RadzenImage>
+                    </RadzenStack>
+                </RadzenLink>
+        </RadzenRow>
+        <RadzenRow class="rz-mx-auto" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceEvenly" Style="max-width: 1440px;" >
+                <!--<RadzenStack AlignItems="AlignItems.End" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End"></RadzenStack>-->
+                    <RadzenMenu Click="OnParentClicked" class="rz-pt-2 rz-mx-04" Style="font-weight: bold; font-size: 12pt"  >
+                        <RadzenMenuItem Text="Documentation" Icon="description" Path="https://docs.signalf.net" Target="_blank" class="rz-mx-8"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Source code" Icon="code" Path="https://github.com/SignalF" Target="_blank"  class="rz-mx-8"></RadzenMenuItem>
+                        <RadzenMenuItem Text="NuGet" Icon="save" Path="https://www.nuget.org/profiles/SignalF" Target="_blank" class="rz-mx-8"></RadzenMenuItem>
+                    </RadzenMenu>      
+                <!--<RadzenStack AlignItems="AlignItems.End" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End"></RadzenStack>-->
         </RadzenRow>
     </RadzenHeader>
-    <RadzenBody Expanded="@sidebarExpanded">
+    <RadzenBody>
+        <RadzenRow class="rz-mx-auto rz-px-4" Style="max-width: 1440px;">
+         <RadzenBreadCrumb>
+         </RadzenBreadCrumb>
+        </RadzenRow>
         <RadzenRow class="rz-mx-auto rz-px-4 rz-pt-2 rz-pt-md-4 rz-pt-lg-6 rz-pt-xl-12 rz-pb-2 rz-pb-lg-12" Style="max-width: 1440px;">
             <RadzenColumn Size="12">
-            @Body
+            <RadzenRow>
+                @Body
+            </RadzenRow>
             </RadzenColumn>
         </RadzenRow>
     </RadzenBody>
-    <RadzenSidebar Expanded="@sidebarExpanded" style="z-index: 2">
-        <RadzenStack AlignItems="Radzen.AlignItems.Center" class="rz-py-4 rz-py-lg-6" Style="padding: var(--rz-panel-menu-item-padding); border-bottom: var(--rz-panel-menu-item-border);">
-            <RadzenImage Path="images/logo.png"  style="width: 48px; height: 48px;" AlternateText="Application logo"></RadzenImage>
-            <RadzenText Text="SignalF.WebApp" TextStyle="Radzen.Blazor.TextStyle.Subtitle1" class="rz-mb-0" style="color: var(--rz-sidebar-color);" />
-        </RadzenStack>
-        <RadzenPanelMenu>
-            <RadzenPanelMenuItem Text="Home" Path="" />
-        </RadzenPanelMenu>
-        <RadzenStack AlignItems="Radzen.AlignItems.Center" Gap="0" class="rz-py-4 rz-py-lg-6" Style="padding: var(--rz-panel-menu-item-padding);">
-            <RadzenText Text="SignalF.WebApp v1.0.0" TextStyle="Radzen.Blazor.TextStyle.Caption" TagName="Radzen.Blazor.TagName.P" TextAlign="Radzen.TextAlign.Center" />
-            <RadzenText Text="Copyright Ⓒ 2024" TextStyle="Radzen.Blazor.TextStyle.Caption" class="rz-mb-0" TagName="Radzen.Blazor.TagName.P" TextAlign="Radzen.TextAlign.Center" />
-        </RadzenStack>
-    </RadzenSidebar>
 </RadzenLayout>
+
+
+@code {
+
+    void OnParentClicked(MenuItemEventArgs args)
+    {
+    }
+
+    void OnChildClicked(MenuItemEventArgs args)
+    {
+    }
+}
