@@ -1,0 +1,5 @@
+/packages
+/Source/.vs
+obj
+bin
+/localPackages
