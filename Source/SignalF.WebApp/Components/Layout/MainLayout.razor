@@ -14,6 +14,7 @@
                 <!--<RadzenStack AlignItems="AlignItems.End" Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.End"></RadzenStack>-->
                     <RadzenMenu Click="OnParentClicked" class="rz-pt-2 rz-mx-04" Style="font-weight: bold; font-size: 12pt"  >
                         <RadzenMenuItem Text="Documentation" Icon="description" Path="https://docs.signalf.net" Target="_blank" class="rz-mx-8"></RadzenMenuItem>
+                        <RadzenMenuItem Text="Discussion Forum" Icon="groups" Path="https://github.com/orgs/SignalF/discussions" Target="_blank" class="rz-mx-8"></RadzenMenuItem>
                         <RadzenMenuItem Text="Source code" Icon="code" Path="https://github.com/SignalF" Target="_blank"  class="rz-mx-8"></RadzenMenuItem>
                         <RadzenMenuItem Text="NuGet" Icon="save" Path="https://www.nuget.org/profiles/SignalF" Target="_blank" class="rz-mx-8"></RadzenMenuItem>
                     </RadzenMenu>      
@@ -32,9 +33,18 @@
             </RadzenRow>
             </RadzenColumn>
         </RadzenRow>
-    </RadzenBody>
+  
+        <RadzenFooter class="" Style="background-color: #00A4CD; margin-left: -15px">
+        <RadzenRow class="" Style="max-width: 1440px;">
+        <RadzenColumn  Size="12">
+        <RadzenText>Copyright 2024 scotexc Software Solutions AB</RadzenText>
+        </RadzenColumn>
+        </RadzenRow>
+    </RadzenFooter > 
+ </RadzenBody>
+  
 </RadzenLayout>
-
+ 
 
 @code {
 
